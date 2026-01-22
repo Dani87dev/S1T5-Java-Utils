@@ -10,11 +10,10 @@ public class Exercise2 {
     public static void main(String[] args) {
 
         String directoryPath = "docs" + File.separator + "example_directory";
+
         File folder = new File(directoryPath);
 
         validateDirectory(folder);
-
-        System.out.println("Listing directory tree:\n");
 
         listDirectoryTree(folder);
     }
@@ -46,9 +45,9 @@ public class Exercise2 {
 
         System.out.println("FOLDER: " + folder.getName().toUpperCase());
 
-        File[] files = getDirectoryFiles(folder);
+        File[] documentsList = getDirectoryFiles(folder);
 
-        for (File file : files) {
+        for (File file : documentsList) {
             printDirectory(file);
 
             if (file.isDirectory()) {
