@@ -8,7 +8,9 @@ public class Exercise1 {
     public static void main(String[] args) {
 
         String directoryPath = "docs"+File.separator+"example_directory";
+
         File folder = new File(directoryPath);
+
         validateDirectory(folder);
 
         File[] listFiles = getDirectoryFiles(folder);
@@ -30,11 +32,8 @@ public class Exercise1 {
         if (list == null) {
             throw new IllegalStateException("Cannot read directory contents");
         }
+        Arrays.sort(list);
         return list;
-    }
-
-    private static void sortFiles(File[] files) {
-        Arrays.sort(files);
     }
 
     private static void printFiles(File[] files) {
