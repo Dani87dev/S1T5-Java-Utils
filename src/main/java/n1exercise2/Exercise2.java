@@ -15,6 +15,8 @@ public class Exercise2 {
 
         validateDirectory(folder);
 
+        System.out.println(folder.getName().toUpperCase());
+
         listDirectoryTree(folder);
     }
 
@@ -43,11 +45,7 @@ public class Exercise2 {
 
     private static void listDirectoryTree(File folder) {
 
-        System.out.println("FOLDER: " + folder.getName().toUpperCase());
-
-        File[] documentsList = getDirectoryFiles(folder);
-
-        for (File file : documentsList) {
+        for (File file : getDirectoryFiles(folder)) {
             printDirectory(file);
 
             if (file.isDirectory()) {
