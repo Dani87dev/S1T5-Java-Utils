@@ -1,0 +1,1 @@
+This is an .text example file to show that readTXT method Works fine
