@@ -16,7 +16,7 @@ public class Exercise2 {
         validateDirectory(folder);
 
         System.out.println(folder.getName().toUpperCase());
-        listDirectory(folder);
+        listDirectoryPrinter(folder);
     }
 
     private static void validateDirectory(File folder) {
@@ -42,14 +42,14 @@ public class Exercise2 {
 
     }
 
-    private static void listDirectory(File folder) {
+    private static void listDirectoryPrinter(File folder) {
 
         for (File file : getDirectoryFiles(folder)) {
             printDirectory(file);
 
             if (file.isDirectory()) {
                 System.out.println();
-                listDirectory(file);
+                listDirectoryPrinter(file);
             }
         }
     }
