@@ -1,16 +1,15 @@
 package n1exercise2;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
 public class Exercise2 {
 
-    public static void main(String[] args) {
-        validateArguments(args);
 
-        String directoryPath = args[0];
+    public static void main(String[] args) {
+
+        String directoryPath = "docs" + File.separator + "example_directory";
         File folder = new File(directoryPath);
 
         validateDirectory(folder);
@@ -18,12 +17,6 @@ public class Exercise2 {
         System.out.println("Listing directory tree:\n");
 
         listDirectoryTree(folder);
-    }
-
-    private static void validateArguments(String[] args) {
-        if (args.length == 0) {
-            throw new IllegalArgumentException("You must provide a directory path as a parameter");
-        }
     }
 
     private static void validateDirectory(File folder) {
@@ -41,21 +34,29 @@ public class Exercise2 {
         return list;
     }
 
+    private static void printDirectory(File file) {
+
+        String typeFile = file.isDirectory() ? "(D)" : "(F)";
+        String lastModified = new Date(file.lastModified()).toString();
+        System.out.println(typeFile + " " + file.getName() + " - " + lastModified);
+
+    }
+
     private static void listDirectoryTree(File folder) {
+
+        System.out.println("FOLDER: " + folder.getName().toUpperCase());
+
         File[] files = getDirectoryFiles(folder);
 
         for (File file : files) {
             printDirectory(file);
 
             if (file.isDirectory()) {
+                System.out.println();
                 listDirectoryTree(file);
             }
         }
     }
 
-    private static void printDirectory(File file) {
-        String typeFile = file.isDirectory() ? "(D)" : "(F)";
-        String lastModified = new Date(file.lastModified()).toString();
-        System.out.println(typeFile + " " + file.getName() + " - " + lastModified);
-    }
+
 }

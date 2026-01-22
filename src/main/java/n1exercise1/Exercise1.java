@@ -7,11 +7,8 @@ public class Exercise1 {
 
     public static void main(String[] args) {
 
-        validateArguments(args);
-
-        String directoryPath = args[0];
+        String directoryPath = "docs"+File.separator+"example_directory";
         File folder = new File(directoryPath);
-
         validateDirectory(folder);
 
         File[] listFiles = getDirectoryFiles(folder);
@@ -21,11 +18,6 @@ public class Exercise1 {
 
     }
 
-    private static void validateArguments(String[] args) {
-        if (args.length == 0) {
-            throw new IllegalArgumentException("You must provide a directory path as a parameter");
-        }
-    }
 
     private static void validateDirectory(File folder) {
         if (!folder.exists() || !folder.isDirectory()) {
