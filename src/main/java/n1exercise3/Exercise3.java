@@ -1,15 +1,13 @@
 package n1exercise3;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Date;
 
 public class Exercise3 {
 
     public static void main(String[] args) {
+
         validateArguments(args);
 
         String directoryPath = args[0];
@@ -17,10 +15,8 @@ public class Exercise3 {
 
         validateDirectory(folder);
 
-        File outputFile = new File("directory_Tree.txt");
-
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
-            listDirectoryTree(folder, writer);
+        try (FileWriter writer = new FileWriter("directory_Tree.txt")) {
+            listDirectory(folder, writer);
         } catch (IOException e) {
             throw new RuntimeException("Error writing file");
         }
@@ -38,31 +34,21 @@ public class Exercise3 {
         }
     }
 
-    private static File[] getDirectoryFiles(File folder) {
-        File[] list = folder.listFiles();
-        if (list == null) {
-            throw new IllegalStateException("Cannot read directory contents");
-        }
-        return list;
-    }
-
-    private static void listDirectoryTree(File folder, BufferedWriter writer) throws IOException {
-        File[] files = getDirectoryFiles(folder);
+    private static void listDirectory(File folder, FileWriter writer) {
+        File[] files = folder.listFiles();
+        if (files == null) return;
 
         for (File file : files) {
-            writeEntry(file, writer);
+            try {
+                writer.write(file.getName() + "\n");
+            } catch (IOException e) {
+                System.out.println("Error writing: " + file.getName());
+            }
 
             if (file.isDirectory()) {
-                listDirectoryTree(file, writer);
+                listDirectory(file, writer);
             }
         }
     }
 
-    private static void writeEntry(File file, BufferedWriter writer) throws IOException {
-        String type = file.isDirectory() ? "(D)" : "(F)";
-        String lastModified = new Date(file.lastModified()).toString();
-
-        writer.write(type + " " + file.getName() + " - " + lastModified);
-        writer.newLine();
-    }
 }
