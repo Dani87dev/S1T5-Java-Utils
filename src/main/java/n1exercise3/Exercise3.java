@@ -8,23 +8,16 @@ public class Exercise3 {
 
     public static void main(String[] args) {
 
-        validateArguments(args);
+        String directoryPath = "docs" + File.separator + "example_directory";
 
-        String directoryPath = args[0];
         File folder = new File(directoryPath);
 
         validateDirectory(folder);
 
         try (FileWriter writer = new FileWriter("directory_Tree.txt")) {
-            listDirectory(folder, writer);
+            listDirectoryWriter(folder, writer);
         } catch (IOException e) {
             throw new RuntimeException("Error writing file");
-        }
-    }
-
-    private static void validateArguments(String[] args) {
-        if (args.length == 0) {
-            throw new IllegalArgumentException("You must provide a directory path as a parameter");
         }
     }
 
@@ -34,9 +27,11 @@ public class Exercise3 {
         }
     }
 
-    private static void listDirectory(File folder, FileWriter writer) {
+    private static void listDirectoryWriter(File folder, FileWriter writer) {
         File[] files = folder.listFiles();
-        if (files == null) return;
+        if (files == null) {
+            throw new IllegalStateException("Cannot read directory contents");
+        }
 
         for (File file : files) {
             try {
@@ -46,7 +41,7 @@ public class Exercise3 {
             }
 
             if (file.isDirectory()) {
-                listDirectory(file, writer);
+                listDirectoryWriter(file, writer);
             }
         }
     }
