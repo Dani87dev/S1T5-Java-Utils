@@ -15,11 +15,9 @@ public class Exercise1 {
 
         File[] listFiles = getDirectoryFiles(folder);
 
-        sortFiles(listFiles);
         printFiles(listFiles);
 
     }
-
 
     private static void validateDirectory(File folder) {
         if (!folder.exists() || !folder.isDirectory()) {
@@ -36,8 +34,8 @@ public class Exercise1 {
         return list;
     }
 
-    private static void printFiles(File[] files) {
-        for (File file : files) {
+    private static void printFiles(File[] listToPrint) {
+        for (File file : listToPrint) {
             System.out.println(file.getName());
         }
     }

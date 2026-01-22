@@ -16,7 +16,6 @@ public class Exercise2 {
         validateDirectory(folder);
 
         System.out.println(folder.getName().toUpperCase());
-
         listDirectoryTree(folder);
     }
 
