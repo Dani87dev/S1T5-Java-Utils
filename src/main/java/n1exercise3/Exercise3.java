@@ -43,7 +43,6 @@ public class Exercise3 {
         if (list == null) {
             throw new IllegalStateException("Cannot read directory contents");
         }
-        Arrays.sort(list);
         return list;
     }
 
@@ -54,7 +53,7 @@ public class Exercise3 {
             writeEntry(file, writer);
 
             if (file.isDirectory()) {
-                listDirectoryTree(file, writer); 
+                listDirectoryTree(file, writer);
             }
         }
     }
