@@ -22,7 +22,7 @@ public class Exercise3 {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
             listDirectoryTree(folder, writer);
         } catch (IOException e) {
-            throw new RuntimeException("Error writing to file");
+            throw new RuntimeException("Error writing file");
         }
     }
 
