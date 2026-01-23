@@ -28,11 +28,11 @@ Demonstrates how to serialize a `Book` object into a `.ser` file and then deseri
 ## ▶️ Compilation 
 
 All programs are designed to be executed **from the command line**.
-### Compile the source files
+Compile the source files
 
 From the project root directory:
 
-### javac -d out src/**/*.java
+ javac -d out src/**/*.java
 
 ( This command compiles all .java source files into .class bytecode and places them in the out directory. )
 
@@ -56,10 +56,4 @@ This project is designed to be fully portable across operating systems (Windows,
 These practices ensure the project is reusable and executable in any environment.
 
 
-## 🌍 Portability and Best Practices
 
-To ensure the project is fully portable and works on any operating system (Windows, macOS, Linux), the following standards are implemented:
-
-* **Relative Paths:** No absolute paths are used. All file references are relative to the project root directory.
-* **File Separator:** The code utilizes java.io.File.separator instead of hardcoded slashes to guarantee cross-platform compatibility.
-* **Version Alignment:** Both the pom.xml and the environment requirements are strictly set to Java 21 (LTS).
