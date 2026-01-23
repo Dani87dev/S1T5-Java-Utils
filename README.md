@@ -25,15 +25,24 @@ Demonstrates how to serialize a `Book` object into a `.ser` file and then deseri
 * **Maven 3.6+**
 * **Git & GitHub**
 
-## ▶️ Compilation and Execution
+## ▶️ Compilation 
 
 All programs are designed to be executed **from the command line**.
 ### Compile the source files
 
 From the project root directory:
 
-javac -d out src/**/*.java
-This command compiles all .java source files into .class bytecode and places them in the out directory.
+### javac -d out src/**/*.java
+
+( This command compiles all .java source files into .class bytecode and places them in the out directory. )
+
+## Executation
+
+To execute an exercise, run:
+
+java -cp out <package>.<MainClass> ( This is the generic way to execute )
+
+java -cp out m1exercise1.Exercise1 ( This is a concrete example of this command ) 
 
 
 ## 🌍 Portability & Best Practices
