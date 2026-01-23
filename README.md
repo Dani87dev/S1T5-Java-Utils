@@ -54,9 +54,3 @@ To ensure the project is fully portable and works on any operating system (Windo
 * **Relative Paths:** No absolute paths are used. All file references are relative to the project root directory.
 * **File Separator:** The code utilizes java.io.File.separator instead of hardcoded slashes to guarantee cross-platform compatibility.
 * **Version Alignment:** Both the pom.xml and the environment requirements are strictly set to Java 21 (LTS).
-
-* ## 🛠 Technologies
-
-- **Java 21 (LTS)**
-- **Git & GitHub**
-- **Command-line tools** (`javac`, `java`)
